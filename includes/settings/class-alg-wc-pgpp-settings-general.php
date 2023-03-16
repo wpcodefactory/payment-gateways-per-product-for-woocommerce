@@ -67,6 +67,27 @@ class Alg_WC_PGPP_Settings_General extends Alg_WC_PGPP_Settings_Section {
 				'id'       => 'alg_wc_pgpp_advanced_options',
 			),
 			array(
+				'title'    => __( 'Fallback gateway', 'payment-gateways-per-product-categories-for-woocommerce' ),
+				'desc'     => '<strong>' . __( 'Enable section', 'payment-gateways-per-product-categories-for-woocommerce' ) . '</strong>',
+				'desc_tip' => apply_filters( 'alg_wc_pgpp', sprintf(
+					'To enable this section you need <a href="%s" target="_blank">Payment Gateways per Products for WooCommerce Pro</a> plugin.',
+					'https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/' ), 'settings' ),
+				'id'       => 'alg_wc_pgpp_advanced_fallback_gateway_enabled',
+				'default'  => 'no',
+				'type'     => 'checkbox',
+				'custom_attributes' => apply_filters( 'alg_wc_pgpp', array( 'disabled' => 'disabled' ), 'settings' ),
+			),
+			array(
+				'title'    => __( 'Choose Fallback gateway', 'payment-gateways-per-product-categories-for-woocommerce' ),
+				'desc_tip' => __( 'If products in cart are in mixing payment gateway rules, show this gateway.', 'payment-gateways-per-product-categories-for-woocommerce' ),
+				'id'       => 'alg_wc_pgpp_advanced_fallback_gateway',
+				'default'  => '',
+				'type'     => 'select',
+				'class'    => 'wc-enhanced-select',
+				'options'  => $this->allGateways(),
+				'custom_attributes' => apply_filters( 'alg_wc_pgpp', array( 'disabled' => 'disabled' ), 'settings' ),
+			),
+			array(
 				'title'    => __( 'Add filter', 'payment-gateways-per-product-categories-for-woocommerce' ),
 				'desc_tip' => __( 'Change this if you are having issues with plugin not working correctly.', 'payment-gateways-per-product-categories-for-woocommerce' ),
 				'id'       => 'alg_wc_pgpp_advanced_add_hook',
@@ -78,11 +99,26 @@ class Alg_WC_PGPP_Settings_General extends Alg_WC_PGPP_Settings_Section {
 					'init'        => __( 'On "init" action', 'payment-gateways-per-product-categories-for-woocommerce' ),
 				),
 			),
+			
 			array(
 				'type'     => 'sectionend',
 				'id'       => 'alg_wc_pgpp_advanced_options',
 			),
 		);
+	}
+	
+	public function allGateways(){
+		$available_gateways = WC()->payment_gateways->payment_gateways();
+		$gateways_settings  = array();
+		foreach ( $available_gateways as $gateway_id => $gateway ) {
+			if(isset($gateway->method_title) && !empty($gateway->method_title)){
+				$gateways_settings[$gateway_id] = $gateway->method_title . ' - ' . $gateway->title;
+			}else{
+				$gateways_settings[$gateway_id] = $gateway->title;
+			}
+		}
+		update_option('alg_wc_pgpp_pay_titles', $gateways_settings);
+		return $gateways_settings;
 	}
 
 }

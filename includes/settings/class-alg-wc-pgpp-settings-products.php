@@ -57,6 +57,7 @@ class Alg_WC_PGPP_Settings_Products extends Alg_WC_PGPP_Settings_Section {
 				'id'       => 'alg_wc_pgpp_products_add_variations',
 				'default'  => 'no',
 				'type'     => 'checkbox',
+				'custom_attributes' => apply_filters( 'alg_wc_pgpp', array( 'disabled' => 'disabled' ), 'settings' ),
 			),
 			array(
 				'type'     => 'sectionend',

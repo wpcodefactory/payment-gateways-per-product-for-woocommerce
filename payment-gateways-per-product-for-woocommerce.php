@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: Payment Gateways per Products for WooCommerce
+Plugin Name: Payment Gateways by Products & Countries for WooCommerce
 Plugin URI: https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/
 Description: Show WooCommerce gateway only if there is selected product, product category or product tag in cart.
-Version: 1.2.1
+Version: 1.7.3.2
 Author: WPWhale
 Author URI: https://wpwhale.com
 Text Domain: payment-gateways-per-product-categories-for-woocommerce
 Domain Path: /langs
-Copyright: © 2019 WPWhale
-WC tested up to: 3.8
+Copyright: © 2023 WPWhale
+WC tested up to: 7.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -132,6 +132,7 @@ final class Alg_WC_PGPP {
 		$this->settings['cats']       = require_once( 'includes/settings/class-alg-wc-pgpp-settings-cats.php' );
 		$this->settings['tags']       = require_once( 'includes/settings/class-alg-wc-pgpp-settings-tags.php' );
 		$this->settings['products']   = require_once( 'includes/settings/class-alg-wc-pgpp-settings-products.php' );
+		$this->settings['countries']   = require_once( 'includes/settings/class-alg-wc-pgpp-settings-countries.php' );
 		// Version updated
 		if ( get_option( 'alg_wc_pgpp_version', '' ) !== $this->version ) {
 			add_action( 'admin_init', array( $this, 'version_updated' ) );
@@ -217,3 +218,109 @@ if ( ! function_exists( 'alg_wc_pgpp' ) ) {
 }
 
 alg_wc_pgpp();
+
+function alg_wc_pgpp_custom_plugin_scripts($hook) {
+	if ( 'woocommerce_page_wc-settings' != $hook ) {
+        return;
+    }
+    wp_enqueue_script( 'select2' );
+}
+add_action( 'admin_enqueue_scripts', 'alg_wc_pgpp_custom_plugin_scripts', PHP_INT_MAX );
+
+function alg_wc_pgpp_custom_admin_js_add_order() {
+	?>
+	<script>
+	jQuery(document).ready(function(){
+		is_checkedalg_wc_pqpp();
+		
+		if (jQuery.isFunction(jQuery('.products_select_pgpp').select2)){
+			jQuery('.products_select_pgpp').select2({
+				ajax: {
+						url: ajaxurl, 
+						dataType: 'json',
+						delay: 250, 
+						data: function (params) {
+							return {
+								q: params.term, 
+								action: 'alg_wc_pgpp_get_products' 
+							};
+						},
+						processResults: function( data ) {
+						var options = [];
+						if ( data ) {
+							jQuery.each( data, function( index, text ) {
+								options.push( { id: text[0], text: text[1]  } );
+							});
+						
+						}
+						return {
+							results: options
+						};
+					},
+					cache: true
+				},
+				minimumInputLength: 3
+			});
+		}
+
+	});
+	jQuery("#alg_wc_pgpp_advanced_fallback_gateway_enabled").on("click", function(){
+        is_checkedalg_wc_pqpp();
+    });
+	function is_checkedalg_wc_pqpp(){
+		if(jQuery("#alg_wc_pgpp_advanced_fallback_gateway_enabled").length > 0){
+			var check = jQuery("#alg_wc_pgpp_advanced_fallback_gateway_enabled").prop("checked");
+			if(check) {
+				 jQuery('#alg_wc_pgpp_advanced_fallback_gateway').removeAttr('disabled');
+			} else {
+				 jQuery('#alg_wc_pgpp_advanced_fallback_gateway').attr('disabled','disabled');
+				  if (jQuery.isFunction(jQuery('#alg_wc_pgpp_advanced_fallback_gateway').select2)){
+					jQuery( '#alg_wc_pgpp_advanced_fallback_gateway' ).select2();
+				  }
+			}
+		}
+	}
+	</script>
+	<?php
+}
+add_action('admin_footer', 'alg_wc_pgpp_custom_admin_js_add_order');
+
+add_action( 'wp_ajax_noprev_alg_wc_pgpp_get_products', 'alg_wc_pgpp_get_products_ajax_callback' );
+add_action( 'wp_ajax_alg_wc_pgpp_get_products', 'alg_wc_pgpp_get_products_ajax_callback' );
+function alg_wc_pgpp_get_products_ajax_callback(){
+
+	// we will pass post IDs and titles to this array
+	$return = array();
+	$add_variations = false;
+	if('yes' === get_option( 'alg_wc_pgpp_products_add_variations', 'no' )){
+		$add_variations = true;		
+	}
+	// you can use WP_Query, query_posts() or get_posts() here - it doesn't matter
+	$loop = new WP_Query( array( 
+		's'=> $_GET['q'], // the search query
+		'post_status' => 'publish',
+		'posts_per_page' => 50,
+		'post_type' => array('product'),
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+		'fields'         => 'ids',
+	) );
+	foreach ( $loop->posts as $post_id ) {
+		$maintitle = get_the_title( $post_id ) . ' (#' . $post_id . ')';
+		$title = ( mb_strlen( $maintitle ) > 100 ) ? mb_substr( $maintitle, 0, 99 ) . '...' : $maintitle;
+		$return[ $post_id ] = array( $post_id, $title );
+		if ( $add_variations ) {
+			$_product = wc_get_product( $post_id );
+			if ( $_product->is_type( 'variable' ) ) {
+				unset( $return[ $post_id ] );
+				foreach ( $_product->get_children() as $child_id ) {
+					$childmaintitle = get_the_title( $child_id ) . ' (#' . $child_id . ')';
+					$chtitle = ( mb_strlen( $childmaintitle ) > 100 ) ? mb_substr( $childmaintitle, 0, 99 ) . '...' : $childmaintitle;
+					$return[ $child_id ] = array( $child_id, $chtitle );
+				}
+			}
+		}
+	}
+	echo json_encode( $return );
+	die;
+}
