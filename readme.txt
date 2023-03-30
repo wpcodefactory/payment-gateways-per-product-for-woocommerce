@@ -101,6 +101,9 @@ Password: G6_32e!r@
 
 == Changelog ==
 
+= 1.7.4 - 30/03/2023 =
+* Move to WPFactory.
+
 = 1.7.3.1 - 15/02/2023 =
 * Bug fix appeared in version 1.7.3 causing PHP fatal error
 * Verified compatibility with WooCommerce 7.4
