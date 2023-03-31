@@ -1,9 +1,9 @@
-=== Control Payment Methods by Products & Countries for WooCommerce ===
+=== Payment Methods by Product & Country for WooCommerce ===
 Contributors: omardabbas
 Tags: woocommerce, payment gateway, /conditional-payments, payment by product, payment by country
 Requires at least: 4.4
 Tested up to: 6.1
-Stable tag: 1.7.3.2
+Stable tag: 1.7.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -101,7 +101,8 @@ Password: G6_32e!r@
 
 == Changelog ==
 
-= 1.7.4 - 30/03/2023 =
+= 1.7.4 - 31/03/2023 =
+* Fix plugin name.
 * Move to WPFactory.
 
 = 1.7.3.1 - 15/02/2023 =

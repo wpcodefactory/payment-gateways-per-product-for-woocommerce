@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Payment Gateways by Products & Countries for WooCommerce Pro
+Plugin Name: Payment Methods by Product & Country for WooCommerce
 Plugin URI: https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/
 Description: Show WooCommerce gateway only if there is selected product, product category or product tag in cart.
-Version: 1.7.4-dev
+Version: 1.7.4
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: payment-gateways-per-product-categories-for-woocommerce
@@ -53,7 +53,7 @@ final class Alg_WC_PGPP {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '1.7.4-dev-20230330-1730';
+	public $version = '1.7.4';
 
 	/**
 	 * @var   Alg_WC_PGPP The single instance of the class
