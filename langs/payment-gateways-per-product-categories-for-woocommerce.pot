@@ -1,219 +1,192 @@
-# Copyright (C) 2023 WPFactory
-# This file is distributed under the GNU General Public License v3.0.
-msgid ""
-msgstr ""
-"Project-Id-Version: payment-gateways-per-product-categories-for-woocommerce 1.7.4\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/payment-gateways-per-product-categories-for-woocommerce\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-31T22:12:34+02:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: payment-gateways-per-product-categories-for-woocommerce\n"
-
-#. Plugin Name of the plugin
-msgid "Payment Methods by Product & Country for WooCommerce Pro"
-msgstr ""
-
-#. Plugin URI of the plugin
-msgid "https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/"
-msgstr ""
-
-#. Description of the plugin
-msgid "Show WooCommerce gateway only if there is selected product, product category or product tag in cart."
-msgstr ""
-
-#. Author of the plugin
-msgid "WPFactory"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://wpfactory.com"
-msgstr ""
-
-#: includes/settings/class-alg-wc-pgpp-settings-cats.php:24
-#: includes/settings/class-alg-wc-pgpp-settings-cats.php:37
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:38
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-cats.php:24
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-cats.php:37
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:38
 msgid "Per Product Categories"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-cats.php:42
-#: includes/settings/class-alg-wc-pgpp-settings-countries.php:45
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:52
-#: includes/settings/class-alg-wc-pgpp-settings-products.php:43
-#: includes/settings/class-alg-wc-pgpp-settings-tags.php:42
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-cats.php:42
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-countries.php:45
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:52
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-products.php:43
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-tags.php:42
 msgid "Enable/Disable"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-cats.php:43
-#: includes/settings/class-alg-wc-pgpp-settings-countries.php:46
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:71
-#: includes/settings/class-alg-wc-pgpp-settings-products.php:44
-#: includes/settings/class-alg-wc-pgpp-settings-tags.php:43
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-cats.php:43
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-countries.php:46
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:71
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-products.php:44
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-tags.php:43
 msgid "Enable section"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-cats.php:56
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-cats.php:56
 msgid "Show gateway only if there is product of selected category in cart."
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-cats.php:57
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-cats.php:57
 msgid "Hide gateway if there is product of selected category in cart."
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-countries.php:24
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-countries.php:24
 msgid "Countries"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-countries.php:39
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-countries.php:39
 msgid "Remove from countries"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-countries.php:40
-msgid "By default, gateways will appear in all countries. To restrict a specific gateway to a specific country, enter them here, all others will remain untouched"
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-countries.php:40
+msgid ""
+"By default, gateways will appear in all countries. To restrict a specific "
+"gateway to a specific country, enter them here, all others will remain "
+"untouched"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-countries.php:57
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-countries.php:57
 msgid "Choose Countries"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-countries.php:58
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-countries.php:58
 msgid "If countries chosen following payment gateways will be excluded"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-countries.php:68
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-countries.php:68
 msgid "Choose gateway to appear with above countries"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-countries.php:69
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-countries.php:69
 msgid "Gateways will appeared with above chosen countries."
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:24
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:24
 msgid "General"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:39
-#: includes/settings/class-alg-wc-pgpp-settings-tags.php:24
-#: includes/settings/class-alg-wc-pgpp-settings-tags.php:37
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:39
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-tags.php:24
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-tags.php:37
 msgid "Per Product Tags"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:40
-#: includes/settings/class-alg-wc-pgpp-settings-products.php:24
-#: includes/settings/class-alg-wc-pgpp-settings-products.php:38
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:40
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-products.php:24
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-products.php:38
 msgid "Per Products"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:47
-#: includes/settings/class-alg-wc-settings-pgpp.php:24
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:47
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-settings-pgpp.php:24
 msgid "Payment Gateways per Products"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:53
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:53
+#, php-format
 msgid "<strong>Sections:</strong> %s."
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:55
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:55
 msgid "Enable plugin"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:65
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:65
 msgid "Advanced Options"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:70
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:70
 msgid "Fallback gateway"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:81
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:81
 msgid "Choose Fallback gateway"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:82
-msgid "If products in cart are in mixing payment gateway rules, show this gateway."
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:82
+msgid ""
+"If products in cart are in mixing payment gateway rules, show this gateway."
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:91
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:91
 msgid "Add filter"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:92
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:92
 msgid "Change this if you are having issues with plugin not working correctly."
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:98
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:98
 msgid "In constructor"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-general.php:99
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-general.php:99
 msgid "On \"init\" action"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-products.php:54
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-products.php:54
 msgid "Add variations"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-products.php:55
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-products.php:55
 msgid "Add"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-products.php:56
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-products.php:56
 msgid "Will use variations instead of main product for variable products."
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-products.php:70
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-products.php:70
 msgid "Show gateway only if there are selected products in cart."
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-products.php:71
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-products.php:71
 msgid "Hide gateway if there are selected products in cart."
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-section.php:41
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-section.php:41
 msgid "Choose Payment Gateway"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-section.php:290
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-section.php:290
 msgid "Include"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-section.php:291
-#: includes/settings/class-alg-wc-pgpp-settings-section.php:301
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-section.php:291
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-section.php:301
 msgid "Ignored if empty."
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-section.php:300
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-section.php:300
 msgid "Exclude"
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-tags.php:56
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-tags.php:56
 msgid "Show gateway only if there is product of selected tag in cart."
 msgstr ""
 
-#: includes/settings/class-alg-wc-pgpp-settings-tags.php:57
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-pgpp-settings-tags.php:57
 msgid "Hide gateway if there is product of selected tag in cart."
 msgstr ""
 
-#: includes/settings/class-alg-wc-settings-pgpp.php:38
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-settings-pgpp.php:38
 msgid "Reset Section"
 msgstr ""
 
-#: includes/settings/class-alg-wc-settings-pgpp.php:43
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-settings-pgpp.php:43
 msgid "Reset settings"
 msgstr ""
 
-#: includes/settings/class-alg-wc-settings-pgpp.php:44
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-settings-pgpp.php:44
 msgid "Reset"
 msgstr ""
 
-#: includes/settings/class-alg-wc-settings-pgpp.php:83
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\includes\settings\class-alg-wc-settings-pgpp.php:83
 msgid "Your settings have been reset."
 msgstr ""
 
-#: payment-gateways-per-product-for-woocommerce-pro.php:155
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\payment-gateways-per-product-for-woocommerce-pro.php:152
+msgid "Settings"
+msgstr ""
+
+#: E:\xampp\htdocs\wpfactory-local\wp-content\plugins\payment-gateways-per-product-for-woocommerce-pro\payment-gateways-per-product-for-woocommerce-pro.php:155
 msgid "Unlock All"
 msgstr ""
