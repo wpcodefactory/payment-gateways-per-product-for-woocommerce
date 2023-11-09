@@ -3,13 +3,13 @@
 Plugin Name: Payment Methods by Product & Country for WooCommerce
 Plugin URI: https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/
 Description: Show WooCommerce gateway only if there is selected product, product category or product tag in cart.
-Version: 1.7.7
+Version: 1.7.8
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: payment-gateways-per-product-categories-for-woocommerce
 Domain Path: /langs
 Copyright: © 2023 WPFactory
-WC tested up to: 8.1
+WC tested up to: 8.2
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -324,3 +324,10 @@ function alg_wc_pgpp_get_products_ajax_callback(){
 	echo json_encode( $return );
 	die;
 }
+
+add_action( 'before_woocommerce_init', function() {
+	if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', dirname(__FILE__), true );
+	}
+} );
+
