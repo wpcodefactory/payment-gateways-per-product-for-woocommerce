@@ -2,8 +2,8 @@
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
 Tags: woocommerce, payment gateway, /conditional-payments, payment by product, payment by country
 Requires at least: 4.4
-Tested up to: 6.3
-Stable tag: 1.7.8
+Tested up to: 6.4
+Stable tag: 1.7.9
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -100,6 +100,11 @@ Password: G6_32e!r@
 3. Start by visiting plugin settings at "WooCommerce > Settings > Payment Gateways per Products".
 
 == Changelog ==
+
+= 1.7.9 - 12/02/2024 =
+* WC tested up to: 8.5.
+* Tested up to: 6.4.
+* New - multiple payment by country restrictions.
 
 = 1.7.8 - 09/11/2023 =
 * Declare HPOS compatibility.

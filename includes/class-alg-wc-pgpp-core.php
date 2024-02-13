@@ -2,7 +2,7 @@
 /**
  * Payment Gateways per Products for WooCommerce - Core Class
  *
- * @version 1.2.0
+ * @version 1.7.9
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -16,7 +16,7 @@ class Alg_WC_PGPP_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.2.0
+	 * @version 1.7.9
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -141,35 +141,113 @@ class Alg_WC_PGPP_Core {
 		}
 		return $is_include;
 	}
+	
+	/**
+	 * get_occupied_payment_gateway.
+	 *
+	 * @version 1.7.9
+	 * @since   1.7.9
+	 */
+	function get_occupied_payment_gateway() {
+		
+		$occupied_gateway = array();
+		$restriction_number = (int) get_option( 'alg_wc_pgpp_countries_restriction_number', 1 );
+		
+		if ( $restriction_number > 0 ) {
+			
+			for ( $i = 1; $i <= $restriction_number; $i ++ ) {
+				
+				if ( $i == 1 ) {
+					$country_id = 'alg_wc_pgpp_countries_remove_countries';
+					$gateway_id = 'alg_wc_pgpp_countries_remove_include_gateway';
+				} else {
+					$country_id = 'alg_wc_pgpp_countries_remove_countries_' . $i;
+					$gateway_id = 'alg_wc_pgpp_countries_remove_include_gateway_' . $i;
+				}
+		
+				$alg_wc_pgpp_countries_remove_countries = get_option( $country_id, array() );
+				$alg_wc_pgpp_countries_remove_include_gateway = get_option( $gateway_id, array() );
+				
+				if ( !empty( $alg_wc_pgpp_countries_remove_countries ) && !empty( $alg_wc_pgpp_countries_remove_include_gateway ) ) {
+					foreach ( $alg_wc_pgpp_countries_remove_include_gateway as $gateway ) {
+						
+						if ( isset( $occupied_gateway[$gateway] ) ) {
+							$occupied_gateway[$gateway] = array_unique( array_merge($alg_wc_pgpp_countries_remove_countries,  $occupied_gateway[$gateway] ) );
+						} else {
+							$occupied_gateway[$gateway] = array_unique( $alg_wc_pgpp_countries_remove_countries );
+						}
+					}
+				}
+				
+			}		
+		}
+		return $occupied_gateway;
+	}
 
 	/**
 	 * filter_available_payment_gateways_per_category.
 	 *
-	 * @version 1.2.0
+	 * @version 1.7.9
 	 * @since   1.0.0
 	 * @todo    [dev] (maybe) `if ( ! isset( WC()->cart ) || '' === WC()->cart ) { WC()->cart = new WC_Cart(); }`
 	 */
 	function filter_available_payment_gateways_per_category( $available_gateways ) {
+		$occupied_gateways = array_keys( $this->get_occupied_payment_gateway() ) ;
 		if(function_exists( 'WC' )){
 			if(!is_null(WC()->checkout()) && isset($_REQUEST['country']) && !empty($_REQUEST['country'])){
-				/*$selected_country = WC()->checkout->get_value( 'billing_country' );*/
-				$selected_country = $_REQUEST['country'];
-				$alg_wc_pgpp_countries_remove_countries = get_option( 'alg_wc_pgpp_countries_remove_countries', array() );
-				$alg_wc_pgpp_countries_remove_include_gateway = get_option( 'alg_wc_pgpp_countries_remove_include_gateway', array() );
-
+				
 				$alg_wc_pgpp_countries_remove_enabled = get_option( 'alg_wc_pgpp_countries_remove_enabled', 'no' );
-				if($alg_wc_pgpp_countries_remove_enabled == 'yes' && in_array($selected_country, $alg_wc_pgpp_countries_remove_countries)){
-					if ( !empty($alg_wc_pgpp_countries_remove_include_gateway) && !empty($available_gateways) ) {
+				
+				if ( $alg_wc_pgpp_countries_remove_enabled == 'yes' ) {
+					$restriction_number = (int) get_option( 'alg_wc_pgpp_countries_restriction_number', 1 );
+					
+					/*$selected_country = WC()->checkout->get_value( 'billing_country' );*/
+					$selected_country = $_REQUEST['country'];
+					
+					if ( $restriction_number > 0 ) {
+						for( $i = 1; $i <= $restriction_number; $i ++ ) {
+							
+							if ($i == 1) {
+								$country_ids = 'alg_wc_pgpp_countries_remove_countries';
+								$gateway_ids = 'alg_wc_pgpp_countries_remove_include_gateway';
+							} else {
+								$country_ids = 'alg_wc_pgpp_countries_remove_countries_' . $i;
+								$gateway_ids = 'alg_wc_pgpp_countries_remove_include_gateway_' . $i;
+							}
+					
+							$alg_wc_pgpp_countries_remove_countries = get_option( $country_ids, array() );
+							$alg_wc_pgpp_countries_remove_include_gateway = get_option( $gateway_ids, array() );
+
+					
+							if ( $alg_wc_pgpp_countries_remove_enabled == 'yes' && in_array( $selected_country, $alg_wc_pgpp_countries_remove_countries ) ) {
+								if ( !empty($alg_wc_pgpp_countries_remove_include_gateway) && !empty($available_gateways) ) {
+									$gateways = $available_gateways;
+									foreach ( $gateways as $gateway_id => $gateway ) {
+										if ( !in_array( $gateway_id, $alg_wc_pgpp_countries_remove_include_gateway ) ) {
+											unset( $gateways[ $gateway_id ] );
+										}
+									}
+									$available_gateways = $gateways;
+									return $available_gateways;
+								}
+							}
+						}
+					}
+					
+					// remove occupied gateways by other countries 
+					if ( !empty( $occupied_gateways ) ) {
 						$gateways = $available_gateways;
 						foreach ( $gateways as $gateway_id => $gateway ) {
-							if(!in_array($gateway_id, $alg_wc_pgpp_countries_remove_include_gateway)){
+							if ( in_array( $gateway_id, $occupied_gateways ) ) {
 								unset( $gateways[ $gateway_id ] );
 							}
 						}
 						$available_gateways = $gateways;
 						return $available_gateways;
 					}
+				
 				}
+				
 			}
 		}
 		
