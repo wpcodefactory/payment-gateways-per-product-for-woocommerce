@@ -2,7 +2,7 @@
 /**
  * Payment Gateways per Products for WooCommerce - General Section Settings
  *
- * @version 1.2.0
+ * @version 1.7.11
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -28,7 +28,7 @@ class Alg_WC_PGPP_Settings_General extends Alg_WC_PGPP_Settings_Section {
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.2.0
+	 * @version 1.7.11
 	 * @since   1.0.0
 	 * @todo    [dev] better description for "Add filter" option
 	 */
@@ -97,6 +97,7 @@ class Alg_WC_PGPP_Settings_General extends Alg_WC_PGPP_Settings_Section {
 				'options'  => array(
 					'constructor' => __( 'In constructor', 'payment-gateways-per-product-categories-for-woocommerce' ),
 					'init'        => __( 'On "init" action', 'payment-gateways-per-product-categories-for-woocommerce' ),
+					'wp_loaded'   => __( 'On "wp_loaded" action', 'payment-gateways-per-product-categories-for-woocommerce' ),
 				),
 			),
 			

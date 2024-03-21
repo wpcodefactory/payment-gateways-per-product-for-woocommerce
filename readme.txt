@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, payment gateway, conditional-payments, payment by product, payment by country
 Requires at least: 4.4
 Tested up to: 6.4
-Stable tag: 1.7.10
+Stable tag: 1.7.11
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -185,6 +185,9 @@ Great plugin and great support!” – ⭐⭐⭐⭐⭐ [Asger Laursen](https://w
 3. Start by visiting plugin settings at "WooCommerce > Settings > Payment Gateways per Products".
 
 == Changelog ==
+
+= 1.7.11 - 21/03/2024 =
+* Add - Add filter > On "wp_loaded" action.
 
 = 1.7.10 - 20/03/2024 =
 * Update readme.txt

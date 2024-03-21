@@ -2,7 +2,7 @@
 /**
  * Payment Gateways per Products for WooCommerce - Core Class
  *
- * @version 1.7.9
+ * @version 1.7.11
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -16,13 +16,16 @@ class Alg_WC_PGPP_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.7.9
+	 * @version 1.7.11
 	 * @since   1.0.0
 	 */
 	function __construct() {
 		if ( 'yes' === get_option( 'alg_wc_pgpp_enabled', 'yes' ) ) {
-			if ( 'constructor' === get_option( 'alg_wc_pgpp_advanced_add_hook', 'init' ) ) {
+			$hook = get_option( 'alg_wc_pgpp_advanced_add_hook', 'init' );
+			if ( 'constructor' ===  $hook) {
 				$this->add_hook();
+			} else if ( 'wp_loaded' ===  $hook) {
+				add_action( 'wp_loaded', array( $this, 'add_hook' ) );
 			} else { // 'init'
 				add_action( 'init', array( $this, 'add_hook' ) );
 			}
