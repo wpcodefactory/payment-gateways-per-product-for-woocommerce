@@ -291,42 +291,71 @@ function alg_wc_pgpp_custom_admin_js_add_order() {
 }
 add_action('admin_footer', 'alg_wc_pgpp_custom_admin_js_add_order');
 
+function query_product_filter_search_per_product($query) {
+    global $wp_query;
+    $query->set( 'post_type', 'product' );
+}
+
 add_action( 'wp_ajax_noprev_alg_wc_pgpp_get_products', 'alg_wc_pgpp_get_products_ajax_callback' );
 add_action( 'wp_ajax_alg_wc_pgpp_get_products', 'alg_wc_pgpp_get_products_ajax_callback' );
 function alg_wc_pgpp_get_products_ajax_callback(){
-
+	
+	
+	// multi site 
+	$network_id = get_current_blog_id();
+	
+	
 	// we will pass post IDs and titles to this array
 	$return = array();
 	$add_variations = false;
 	if('yes' === get_option( 'alg_wc_pgpp_products_add_variations', 'no' )){
 		$add_variations = true;		
 	}
+	
+	if( $network_id > 0 ) {
+		switch_to_blog(intval($network_id));
+	}
+	
+	add_action( 'pre_get_posts', 'query_product_filter_search_per_product', PHP_INT_MAX );
 	// you can use WP_Query, query_posts() or get_posts() here - it doesn't matter
 	$loop = new WP_Query( array( 
 		's'=> $_GET['q'], // the search query
 		'post_status' => 'publish',
 		'posts_per_page' => 50,
-		'post_type' => array('product'),
+		'post_type' 	 => 'product',
 		'orderby'        => 'title',
 		'order'          => 'ASC',
 		'fields'         => 'ids',
 	) );
+	
+	
 	foreach ( $loop->posts as $post_id ) {
 		$maintitle = get_the_title( $post_id ) . ' (#' . $post_id . ')';
+		$maintitle = wp_specialchars_decode( $maintitle );
 		$title = ( mb_strlen( $maintitle ) > 100 ) ? mb_substr( $maintitle, 0, 99 ) . '...' : $maintitle;
 		$return[ $post_id ] = array( $post_id, $title );
+
 		if ( $add_variations ) {
 			$_product = wc_get_product( $post_id );
-			if ( $_product->is_type( 'variable' ) ) {
+			
+			
+			if ( $_product && $_product->is_type( 'variable' ) ) {
+				
 				unset( $return[ $post_id ] );
 				foreach ( $_product->get_children() as $child_id ) {
 					$childmaintitle = get_the_title( $child_id ) . ' (#' . $child_id . ')';
+					$childmaintitle = wp_specialchars_decode( $childmaintitle );
 					$chtitle = ( mb_strlen( $childmaintitle ) > 100 ) ? mb_substr( $childmaintitle, 0, 99 ) . '...' : $childmaintitle;
 					$return[ $child_id ] = array( $child_id, $chtitle );
 				}
 			}
 		}
 	}
+	
+	if( $network_id > 0 ) {
+		restore_current_blog();
+	}
+	remove_action( 'pre_get_posts', 'query_product_filter_search_per_product', PHP_INT_MAX );
 	echo json_encode( $return );
 	die;
 }
