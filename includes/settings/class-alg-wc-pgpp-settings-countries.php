@@ -2,7 +2,7 @@
 /**
  * Payment Gateways per Products for WooCommerce - Products Section Settings
  *
- * @version 1.7.9
+ * @version 1.7.17
  * @since   1.1.0
  * @author  WPFactory
  */
@@ -68,7 +68,7 @@ class Alg_WC_PGPP_Settings_Countries extends Alg_WC_PGPP_Settings_Section {
 				
 				$return[] = array(
 					'title'    => __( 'Choose Countries', 'payment-gateways-per-product-categories-for-woocommerce' ),
-					'desc_tip' => __( 'If countries chosen following payment gateways will be excluded', 'payment-gateways-per-product-categories-for-woocommerce' ),
+					'desc_tip' => __( 'If countries chosen following payment gateways will be included', 'payment-gateways-per-product-categories-for-woocommerce' ),
 					'id'       => $country_id, 
 					'default'  => '',
 					'type'     => 'multiselect',
@@ -102,7 +102,7 @@ class Alg_WC_PGPP_Settings_Countries extends Alg_WC_PGPP_Settings_Section {
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.7.9
+	 * @version 1.7.17
 	 * @since   1.1.0
 	 * @todo    [dev] "Add variations": maybe add option to use main product and variations *simultaneously*
 	 */
@@ -125,6 +125,16 @@ class Alg_WC_PGPP_Settings_Countries extends Alg_WC_PGPP_Settings_Section {
 					'To enable this section you need <a href="%s" target="_blank">Payment Gateways per Products for WooCommerce Pro</a> plugin.',
 					'https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/' ), 'settings' ),
 				'id'       => 'alg_wc_pgpp_countries_remove_enabled',
+				'default'  => 'no',
+				'type'     => 'checkbox',
+				'custom_attributes' => apply_filters( 'alg_wc_pgpp', array( 'disabled' => 'disabled' ), 'settings' ),
+			);
+			
+			$settings[] = array(
+				'title'    => __( 'Combine conditions from other sections', 'payment-gateways-per-product-categories-for-woocommerce' ),
+				'desc'     => '<strong>' . __( 'Enable', 'payment-gateways-per-product-categories-for-woocommerce' ) . '</strong>',
+				'desc_tip' => __( 'It will result in the combination of payment gateways with other conditions from other sections (Product Category, Product Tags, Per Product) as well.', 'payment-gateways-per-product-categories-for-woocommerce' ),
+				'id'       => 'alg_wc_pgpp_countries_combine_condition',
 				'default'  => 'no',
 				'type'     => 'checkbox',
 				'custom_attributes' => apply_filters( 'alg_wc_pgpp', array( 'disabled' => 'disabled' ), 'settings' ),

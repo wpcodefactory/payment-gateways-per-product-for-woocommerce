@@ -2,7 +2,7 @@
 /**
  * Payment Gateways per Products for WooCommerce - Core Class
  *
- * @version 1.7.11
+ * @version 1.7.17
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -190,16 +190,18 @@ class Alg_WC_PGPP_Core {
 	/**
 	 * filter_available_payment_gateways_per_category.
 	 *
-	 * @version 1.7.9
+	 * @version 1.7.17
 	 * @since   1.0.0
 	 * @todo    [dev] (maybe) `if ( ! isset( WC()->cart ) || '' === WC()->cart ) { WC()->cart = new WC_Cart(); }`
 	 */
 	function filter_available_payment_gateways_per_category( $available_gateways ) {
+		
 		$occupied_gateways = array_keys( $this->get_occupied_payment_gateway() ) ;
 		if(function_exists( 'WC' )){
 			if(!is_null(WC()->checkout()) && isset($_REQUEST['country']) && !empty($_REQUEST['country'])){
 				
 				$alg_wc_pgpp_countries_remove_enabled = get_option( 'alg_wc_pgpp_countries_remove_enabled', 'no' );
+				$alg_wc_pgpp_countries_combine_condition = get_option( 'alg_wc_pgpp_countries_combine_condition', 'no' );
 				
 				if ( $alg_wc_pgpp_countries_remove_enabled == 'yes' ) {
 					$restriction_number = (int) get_option( 'alg_wc_pgpp_countries_restriction_number', 1 );
@@ -231,14 +233,16 @@ class Alg_WC_PGPP_Core {
 										}
 									}
 									$available_gateways = $gateways;
-									return $available_gateways;
+									if( $alg_wc_pgpp_countries_combine_condition == 'no' ) {
+										return $available_gateways;
+									}
 								}
 							}
 						}
 					}
 					
 					// remove occupied gateways by other countries 
-					if ( !empty( $occupied_gateways ) ) {
+					if ( !empty( $occupied_gateways ) && $alg_wc_pgpp_countries_combine_condition == 'no' ) {
 						$gateways = $available_gateways;
 						foreach ( $gateways as $gateway_id => $gateway ) {
 							if ( in_array( $gateway_id, $occupied_gateways ) ) {
@@ -280,6 +284,7 @@ class Alg_WC_PGPP_Core {
 		}
 		
 		
+		
 		$alg_wc_pgpp_advanced_fallback_gateway = get_option( 'alg_wc_pgpp_advanced_fallback_gateway', '' );
 		$alg_wc_pgpp_advanced_fallback_gateway_enabled = get_option( 'alg_wc_pgpp_advanced_fallback_gateway_enabled', 'no' );
 		
@@ -293,6 +298,8 @@ class Alg_WC_PGPP_Core {
 				$available_gateways = $gateways;
 			}
 		}
+		
+		
 		
 		return $available_gateways;
 	}
