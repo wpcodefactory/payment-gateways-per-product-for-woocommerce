@@ -2,8 +2,8 @@
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
 Tags: woocommerce, payment gateway, conditional-payments, payment by product, payment by country
 Requires at least: 4.4
-Tested up to: 6.6
-Stable tag: 1.7.17
+Tested up to: 6.7
+Stable tag: 1.8.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -13,7 +13,7 @@ Use products and countries conditional rules to show/hide gateways, increase pro
 
 > “Works great, WPML compatible!: Great plugin! Glad it supports many languages (I use WPML)” – ⭐⭐⭐⭐⭐  [alexio101](https://wordpress.org/support/topic/works-great-wpml-compatible/)
 
-[Main Page](https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "Main Page") | [Demo](https://paymentbyproduct.instawp.xyz/ "Demo") | [Support Forum](https://wpfactory.com/support/item/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "Support Forum") | [Documentation & How to](https://wpfactory.com/docs/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "Documentation & How to") 
+[Main Page](https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "Main Page") | [Demo](https://paymentbyproduct.instawp.xyz/ "Demo") | [Support Forum](https://wpfactory.com/support/item/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "Support Forum") | [Documentation & How to](https://wpfactory.com/docs/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "Documentation & How to")
 
 Every payment gateway has its own advantages/disadvantages, they are not equal when it comes to fees, adaptability from customers, regional popularity, and even in security as some gateways are known for larger fraud cases than others.
 
@@ -64,13 +64,13 @@ Note: Adding category C to the "Included" section of wire transfer will hide thi
 
 ### 🚀 Restrict Payment Gateway Visibility by Product Category ###
 
-This feature allows you to control which payment gateways are available for specific product categories. 
-For instance, if you have products in Category C that should only be purchased via wire transfer due to their high price, you can set this category to be exclusively associated with the wire transfer payment gateway. 
+This feature allows you to control which payment gateways are available for specific product categories.
+For instance, if you have products in Category C that should only be purchased via wire transfer due to their high price, you can set this category to be exclusively associated with the wire transfer payment gateway.
 Similarly, for Category B, you can exclude PayPal as a payment option, while Category A remains unrestricted, compatible with all payment gateways.
 
 ### 🚀 Restrict Payment Gateway Visibility by Product Tag ###
 
-Similar to the category-based control, this mode lets you specify payment gateways based on product tags. 
+Similar to the category-based control, this mode lets you specify payment gateways based on product tags.
 This means you can have even finer control by tagging specific products and associating them with certain payment methods. For example, if a product is tagged with a particular label indicating a special payment condition, the plugin will automatically adjust the available payment gateways for that product in the cart.
 
 ### 🚀 Intuitive & easy to use interface ###
@@ -102,25 +102,25 @@ Our **[Plugin Pro version](https://wpfactory.com/item/payment-gateways-per-produ
 
 ### 🏆 Payment Method Control at Product and Variation Level ###
 
-This functionality extends your control beyond categories and tags, allowing you to specify payment gateways for individual products and even their variations. 
+This functionality extends your control beyond categories and tags, allowing you to specify payment gateways for individual products and even their variations.
 
-This granular level of customization is perfect for unique items or specific variations that require special payment handling. 
+This granular level of customization is perfect for unique items or specific variations that require special payment handling.
 
 For example, you could set a high-end product variation to only be purchasable through credit card transactions, while a standard version of the product might be available for purchase through multiple payment methods
 
 ### 🏆 Fallback Payment Method Selection ###
 
-In scenarios where your cart contains mixed products from different rules, potentially leading to a conflict where no payment method is available, this feature comes into play. 
+In scenarios where your cart contains mixed products from different rules, potentially leading to a conflict where no payment method is available, this feature comes into play.
 
 It allows you to designate a fallback payment gateway for such cases. This ensures that there's always an available payment option for customers, even when their cart contains a complex mix of products with different payment gateway rules.
 
 ### 🏆 Payment Gateway Restriction by Country ###
 
-This feature allows you to tailor the availability of payment gateways based on the customer's billing country. 
+This feature allows you to tailor the availability of payment gateways based on the customer's billing country.
 
-This is particularly useful for businesses that operate internationally and need to comply with various regional financial regulations or want to offer localized payment options. 
+This is particularly useful for businesses that operate internationally and need to comply with various regional financial regulations or want to offer localized payment options.
 
-For instance, you might restrict certain payment methods to customers in the EU while offering different options to those in the US. 
+For instance, you might restrict certain payment methods to customers in the EU while offering different options to those in the US.
 
 Additionally, it can be used to limit expensive international transaction fees for certain regions by offering local payment solutions, or to comply with regional restrictions on certain payment services.
 
@@ -197,6 +197,16 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 
 == Changelog ==
 
+= 1.8.0 - 20/11/2024 =
+* Dev - Plugin settings moved to the "WPFactory" menu.
+* Dev - "Recommendations" added.
+* Dev - "Key Manager" added.
+* Dev - PHP 8.2 compatibility - "Creation of dynamic property is deprecated" notice fixed.
+* Dev - The plugin initialized on the `plugins_loaded` action.
+* Dev - Code refactoring.
+* Tested up to: 6.7.
+* WC tested up to: 9.4.
+
 = 1.7.16 - 10/09/2024 =
 * Add - Countries - Combine conditions from other sections.
 
@@ -269,7 +279,7 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 
 = 1.6.4 - 28/01/2022 =
 * Allowed mixing includes/excludes while giving priority to product-defined settings over category/attribute
-* Verified compatibily with WooCommerce 6.2 
+* Verified compatibily with WooCommerce 6.2
 
 = 1.6.3 - 28/01/2022 =
 * Verified compatibily with WordPress 5.9 & WooCommerce 6.1

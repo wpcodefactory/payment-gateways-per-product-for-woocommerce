@@ -2,16 +2,33 @@
 /**
  * Payment Gateways per Products for WooCommerce - Section Settings
  *
- * @version 1.2.0
+ * @version 1.8.0
  * @since   1.0.0
+ *
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Alg_WC_PGPP_Settings_Section' ) ) :
 
 class Alg_WC_PGPP_Settings_Section {
+
+	/**
+	 * id.
+	 *
+	 * @version 1.8.0
+	 * @since   1.8.0
+	 */
+	public $id;
+
+	/**
+	 * desc.
+	 *
+	 * @version 1.8.0
+	 * @since   1.8.0
+	 */
+	public $desc;
 
 	/**
 	 * Constructor.
@@ -22,13 +39,13 @@ class Alg_WC_PGPP_Settings_Section {
 	function __construct() {
 		add_filter( 'woocommerce_get_sections_alg_wc_pgpp',              array( $this, 'settings_section' ) );
 		add_filter( 'woocommerce_get_settings_alg_wc_pgpp_' . $this->id, array( $this, 'get_settings' ), PHP_INT_MAX );
-		
+
 		if(get_option('alg_wc_pgpp_products_section_enabled', 'no') === 'yes'){
 			add_action( 'add_meta_boxes',    array( $this, 'alg_wc_pgpp_metabox' ), PHP_INT_MAX );
 			add_action( 'save_post_product', array( $this, 'save_pgpp_meta_box' ), PHP_INT_MAX, 3 );
 		}
 	}
-	
+
 	/**
 	 * alg_wc_pgpp_metabox.
 	 *
@@ -45,7 +62,7 @@ class Alg_WC_PGPP_Settings_Section {
 			'high'
 		);
 	}
-	
+
 	/**
 	 * display_pgpp_metabox.
 	 *
@@ -64,7 +81,7 @@ class Alg_WC_PGPP_Settings_Section {
 			if(isset($alg_wc_pgpp_pay_titles[$gateway_id])){
 				$gateway_title = $alg_wc_pgpp_pay_titles[$gateway_id];
 			}
-			
+
 			$ischecked = false;
 			$option_name = 'alg_wc_pgpp_products_include_' . $gateway_id;
 			$optionvalue = get_option($option_name, array());
@@ -82,9 +99,9 @@ class Alg_WC_PGPP_Settings_Section {
 		}
 		?>
 		<input type="hidden" name="alg_wc_pgpp_save_post_gateway" value="alg_wc_pgpp_save_post_gateway">
-		<?php 
+		<?php
 	}
-	
+
 	/**
 	 * save_pgpp_meta_box.
 	 *
@@ -107,7 +124,7 @@ class Alg_WC_PGPP_Settings_Section {
 			$gateway_post_key = 'alg_wc_pgpp_post_gateway_' . $gateway_id;
 			$option_name = 'alg_wc_pgpp_products_include_' . $gateway_id;
 			$optionvalue = get_option($option_name, array());
-			
+
 			if ( isset( $_POST[ $gateway_post_key ] )  && $_POST[ $gateway_post_key ] == 'on') {
 				if(isset($optionvalue) && !empty($optionvalue) && is_array($optionvalue)){
 					if(!in_array($post->ID, $optionvalue)){
@@ -130,7 +147,7 @@ class Alg_WC_PGPP_Settings_Section {
 			}
 		}
 	}
-	
+
 	/**
 	 * settings_section.
 	 *
@@ -182,7 +199,7 @@ class Alg_WC_PGPP_Settings_Section {
 		}
 		return $products;
 	}
-	
+
 	function get_selected_product_options($option_id){
 		$return = array();
 		$posts = get_option($option_id, array());
@@ -214,7 +231,7 @@ class Alg_WC_PGPP_Settings_Section {
 			$admin_current_lang = apply_filters( 'wpml_current_language', NULL );
 			$sitepress->switch_lang('all');
 		}
-		
+
 		if ( version_compare( $wp_version, '4.5.0', '>=' ) ) {
 			$_terms = get_terms( $args );
 		} else {
@@ -222,11 +239,11 @@ class Alg_WC_PGPP_Settings_Section {
 			unset( $args['taxonomy'] );
 			$_terms = get_terms( $_taxonomy, $args );
 		}
-		
+
 		if (isset($sitepress)) {
 			$sitepress->switch_lang($admin_current_lang);
 		}
-		
+
 		$_terms_options = array();
 		if ( ! empty( $_terms ) && ! is_wp_error( $_terms ) ){
 			foreach ( $_terms as $_term ) {
@@ -240,7 +257,7 @@ class Alg_WC_PGPP_Settings_Section {
 		}
 		return $_terms_options;
 	}
-	
+
 	function get_language_by_term_id($tid, $type){
 		global $wpdb;
 		$type = 'tax_' . $type;
@@ -263,10 +280,10 @@ class Alg_WC_PGPP_Settings_Section {
 	function get_gateways_settings( $args ) {
 		$available_gateways = WC()->payment_gateways->payment_gateways();
 		$alg_wc_pgpp_pay_titles = get_option('alg_wc_pgpp_pay_titles', array());
-		
+
 		$gateways_settings  = array();
 		foreach ( $available_gateways as $gateway_id => $gateway ) {
-			
+
 			if($args['options_id'] == 'products'){
 				$options_in = $this->get_selected_product_options('alg_wc_pgpp_' . $args['options_id'] . '_include_' . $gateway_id);
 				$options_ex = $this->get_selected_product_options('alg_wc_pgpp_' . $args['options_id'] . '_exclude_' . $gateway_id);
@@ -279,7 +296,7 @@ class Alg_WC_PGPP_Settings_Section {
 			if(isset($alg_wc_pgpp_pay_titles[$gateway_id])){
 				$gateway_title = $alg_wc_pgpp_pay_titles[$gateway_id];
 			}
-			
+
 			$gateways_settings = array_merge( $gateways_settings, array(
 				array(
 					'title'    => $gateway_title,
