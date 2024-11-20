@@ -1,6 +1,6 @@
 === Payment Methods by Product & Country for WooCommerce ===
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
-Tags: woocommerce, payment gateway, conditional-payments, payment by product, payment by country
+Tags: woocommerce, payment gateway, conditional payments, payment by product, payment by country
 Requires at least: 4.4
 Tested up to: 6.7
 Stable tag: 1.8.0
