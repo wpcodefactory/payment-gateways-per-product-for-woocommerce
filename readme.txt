@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, payment gateway, conditional payments, payment by product, payment by country
 Requires at least: 4.4
 Tested up to: 6.7
-Stable tag: 1.8.0
+Stable tag: 1.8.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -196,6 +196,10 @@ Great plugin and great support!” – ⭐⭐⭐⭐⭐ [Asger Laursen](https://w
 Once activated, access the plugin's settings by navigating to “WooCommerce > Settings” and look for the relevant tab.
 
 == Changelog ==
+
+= 1.8.1 - 03/12/2024 =
+* Fix - Resolved warning "Function _load_textdomain_just_in_time was called incorrectly".
+* Dev - Key Manager - Library updated.
 
 = 1.8.0 - 20/11/2024 =
 * Dev - Plugin settings moved to the "WPFactory" menu.

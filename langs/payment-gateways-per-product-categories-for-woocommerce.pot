@@ -106,8 +106,8 @@ msgstr ""
 
 #: includes/settings/class-alg-wc-pgpp-settings-general.php:47
 #: includes/settings/class-alg-wc-settings-pgpp.php:24
-#: payment-gateways-per-product-for-woocommerce.php:262
-#: payment-gateways-per-product-for-woocommerce.php:263
+#: payment-gateways-per-product-for-woocommerce.php:272
+#: payment-gateways-per-product-for-woocommerce.php:273
 msgid "Payment Gateways per Products"
 msgstr ""
 
@@ -218,10 +218,10 @@ msgstr ""
 msgid "Your settings have been reset."
 msgstr ""
 
-#: payment-gateways-per-product-for-woocommerce.php:214
+#: payment-gateways-per-product-for-woocommerce.php:224
 msgid "Settings"
 msgstr ""
 
-#: payment-gateways-per-product-for-woocommerce.php:218
+#: payment-gateways-per-product-for-woocommerce.php:228
 msgid "Unlock All"
 msgstr ""

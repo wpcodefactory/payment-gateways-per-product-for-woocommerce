@@ -3,7 +3,7 @@
 Plugin Name: Payment Methods by Product & Country for WooCommerce
 Plugin URI: https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/
 Description: Show WooCommerce gateway only if there is selected product, product category or product tag in cart.
-Version: 1.8.0
+Version: 1.8.1
 Author: WPFactory
 Author URI: https://wpfactory.com
 Text Domain: payment-gateways-per-product-categories-for-woocommerce
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Alg_WC_PGPP' ) ) :
 /**
  * Main Alg_WC_PGPP Class
  *
- * @version 1.8.0
+ * @version 1.8.1
  * @since   1.0.0
  *
  * @class   Alg_WC_PGPP
@@ -75,7 +75,7 @@ final class Alg_WC_PGPP {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '1.8.0';
+	public $version = '1.8.1';
 
 	/**
 	 * @var   Alg_WC_PGPP The single instance of the class
@@ -120,7 +120,7 @@ final class Alg_WC_PGPP {
 	/**
 	 * Alg_WC_PGPP Constructor.
 	 *
-	 * @version 1.8.0
+	 * @version 1.8.1
 	 * @since   1.0.0
 	 *
 	 * @access  public
@@ -133,11 +133,7 @@ final class Alg_WC_PGPP {
 		}
 
 		// Set up localisation
-		load_plugin_textdomain(
-			'payment-gateways-per-product-categories-for-woocommerce',
-			false,
-			dirname( plugin_basename( __FILE__ ) ) . '/langs/'
-		);
+		add_action( 'init', array( $this, 'localize' ) );
 
 		// Pro
 		if ( 'payment-gateways-per-product-for-woocommerce-pro.php' === basename( __FILE__ ) ) {
@@ -152,6 +148,20 @@ final class Alg_WC_PGPP {
 			$this->admin();
 		}
 
+	}
+
+	/**
+	 * localize.
+	 *
+	 * @version 1.8.1
+	 * @since   1.8.1
+	 */
+	function localize() {
+		load_plugin_textdomain(
+			'payment-gateways-per-product-categories-for-woocommerce',
+			false,
+			dirname( plugin_basename( __FILE__ ) ) . '/langs/'
+		);
 	}
 
 	/**
