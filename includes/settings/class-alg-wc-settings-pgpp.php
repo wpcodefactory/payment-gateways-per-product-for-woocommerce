@@ -2,7 +2,7 @@
 /**
  * Payment Gateways per Products for WooCommerce - Settings
  *
- * @version 1.1.1
+ * @version 1.8.2
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -16,13 +16,19 @@ class Alg_WC_Settings_PGPP extends WC_Settings_Page {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.1.0
+	 * @version 1.8.2
 	 * @since   1.0.0
 	 */
 	function __construct() {
 		$this->id    = 'alg_wc_pgpp';
 		$this->label = __( 'Payment Gateways per Products', 'payment-gateways-per-product-categories-for-woocommerce' );
 		parent::__construct();
+		require_once plugin_dir_path( __FILE__ ) . 'class-alg-wc-pgpp-settings-section.php';
+		require_once plugin_dir_path( __FILE__ ) . 'class-alg-wc-pgpp-settings-general.php';
+		require_once plugin_dir_path( __FILE__ ) . 'class-alg-wc-pgpp-settings-cats.php';
+		require_once plugin_dir_path( __FILE__ ) . 'class-alg-wc-pgpp-settings-tags.php';
+		require_once plugin_dir_path( __FILE__ ) . 'class-alg-wc-pgpp-settings-products.php';
+		require_once plugin_dir_path( __FILE__ ) . 'class-alg-wc-pgpp-settings-countries.php';
 	}
 
 	/**

@@ -2,12 +2,12 @@
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
 Tags: woocommerce, payment gateway, conditional payments, payment by product, payment by country
 Requires at least: 4.4
-Tested up to: 6.7
-Stable tag: 1.8.1
+Tested up to: 6.8
+Stable tag: 1.8.2
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Use products and countries conditional rules to show/hide gateways, increase profit margins & optimize operations for your products by restricting payment methods in WooCommerce checkout page
+Use products and countries conditional rules to show/hide gateways, increase profit margins & optimize operations for your products by restricting payment methods in WooCommerce checkout page.
 
 == Description ==
 
@@ -30,7 +30,6 @@ In a nutshell, this is what you can expect to get with this plugin:
 5. Show a fallback gateway in the case of gateways allow & disallow conflict (Pro).
 
 Let's get into more details and see what features the plugin offers.
-
 
 ## 🤝 Recommended By##
 * [PPWP Pro: How to Restrict WooCommerce Payment Methods Based on Product Types](https://passwordprotectwp.com/restrict-woocommerce-payment-methods-product-types/ "PPWP Pro: How to Restrict WooCommerce Payment Methods Based on Product Types")
@@ -131,7 +130,6 @@ Additionally, it can be used to limit expensive international transaction fees f
 * **Highly-Rated Support:** Backed by hundreds of 5-star reviews
 * **Expert Team:** Dedicated developers and technical support at your service
 
-
 ## What's Next? Discover More Plugins by WPFactory ##
 
 WPFactory has a diverse range of plugins tailored to enhance your experience, some of our top-selling plugins are:
@@ -152,7 +150,6 @@ WPFactory has a diverse range of plugins tailored to enhance your experience, so
 
 * [**Dynamic Pricing & Bulk Quantity Discounts**](https://wpfactory.com/item/product-price-by-quantity-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Dynamic Pricing & Bulk Quantity Discounts**"): Advanced dynamic pricing and discount rules for WooCommerce, encouraging bulk purchases and driving more sales (**[Free version](https://wordpress.org/plugins/wholesale-pricing-woocommerce/ "Free version")**)
 
-
 ###❤️ USER TESTIMONIALS: SEE WHAT OTHERS ARE SAYING! ###
 
 > “If you need granularity on payment gateways related to products, categories or tags - this is your plugin.
@@ -163,7 +160,6 @@ Great plugin and great support!” – ⭐⭐⭐⭐⭐ [Asger Laursen](https://w
 > “Excellent work. I bought the plugin because I needed to regulate my payment method on a particular product with variations and also on a particular category. It works great.” – ⭐⭐⭐⭐⭐ [Peter Domaracky](https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme)
 
 > “Great plugin – It works flawlessly: Great plugin! It works flawlessly. I use this plugin in combination with All in One Product Quantity for WooCommerce – by the same author. I am sincerely delighted. I do not understand the ratings and support questions in which some users say that the plugin does not work?! The plugin works exactly as described. The settings are very simple.” – ⭐⭐⭐⭐⭐ [vipteam](https://wordpress.org/support/topic/great-plugin-it-works-flawlessly/)
-
 
 == Screenshots ==
 
@@ -193,9 +189,20 @@ Great plugin and great support!” – ⭐⭐⭐⭐⭐ [Asger Laursen](https://w
 4. After the installation is complete, click “Activate”.
 
 **Post-Activation:**
-Once activated, access the plugin's settings by navigating to “WooCommerce > Settings” and look for the relevant tab.
+Once activated, access the plugin's settings by navigating to the "WPFactory" and look for the relevant tab.
 
 == Changelog ==
+
+= 1.8.2 - 27/06/2025 =
+* Fix - Resolved warning "Function _load_textdomain_just_in_time was called incorrectly" on admin pages.
+* Dev - WPFactory Admin Menu - Icon added.
+* Dev - WPFactory Admin Menu - Moved to the `init` hook.
+* Dev - WPFactory Key Manager - Moved to the `init` hook.
+* Dev - WPFactory Recommendations - Moved to the `init` hook.
+* Dev - WPFactory Admin Menu - Library updated.
+* Dev - WPFactory Key Manager - Library updated.
+* WC tested up to: 9.9.
+* Tested up to: 6.8.
 
 = 1.8.1 - 03/12/2024 =
 * Fix - Resolved warning "Function _load_textdomain_just_in_time was called incorrectly".
@@ -208,8 +215,8 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 * Dev - PHP 8.2 compatibility - "Creation of dynamic property is deprecated" notice fixed.
 * Dev - The plugin initialized on the `plugins_loaded` action.
 * Dev - Code refactoring.
-* Tested up to: 6.7.
 * WC tested up to: 9.4.
+* Tested up to: 6.7.
 
 = 1.7.16 - 10/09/2024 =
 * Add - Countries - Combine conditions from other sections.
@@ -221,16 +228,16 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 * Fix - Alg_WC_PGPP::$core declaration.
 
 = 1.7.14 - 30/07/2024 =
-* Tested up to: 6.6.
 * WC tested up to: 9.1.
+* Tested up to: 6.6.
 
 = 1.7.13 - 06/06/2024 =
 * Alg_WC_PGPP::$core declaration.
 
 = 1.7.12 - 04/04/2024 =
 * Update - readme.txt
-* Tested up to: 6.5.
 * WC tested up to: 8.7.
+* Tested up to: 6.5.
 
 = 1.7.11 - 21/03/2024 =
 * Add - Add filter > On "wp_loaded" action.
@@ -263,79 +270,79 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 * Move to WPFactory.
 
 = 1.7.3.1 - 15/02/2023 =
-* Bug fix appeared in version 1.7.3 causing PHP fatal error
-* Verified compatibility with WooCommerce 7.4
+* Bug fix appeared in version 1.7.3 causing PHP fatal error.
+* Verified compatibility with WooCommerce 7.4.
 
 = 1.7.3 - 13/02/2023 =
-* New feature (Pro): enable/disable payment method by country
-* Verified compatibility with WooCommerce 7.3
+* New feature (Pro): enable/disable payment method by country.
+* Verified compatibility with WooCommerce 7.3.
 
 = 1.7.2 - 04/11/2022 =
-* Verified compatibily with WordPress 6.1 & WooCommerce 7.0
+* Verified compatibility with WordPress 6.1 & WooCommerce 7.0.
 
 = 1.7.1 - 12/06/2022 =
-* Verified compatibily with WordPress 6.0 & WooCommerce 6.5
+* Verified compatibility with WordPress 6.0 & WooCommerce 6.5.
 
 = 1.7 - 18/04/2022 =
-* Fixed an uncaught error related to a JS file (select2)
-* Fixed a bug in client area where gateways were hidden without products in cart
-* Verified compatibily with WooCommerce 6.4
+* Fixed an uncaught error related to a JS file (select2).
+* Fixed a bug in client area where gateways were hidden without products in cart.
+* Verified compatibility with WooCommerce 6.4.
 
 = 1.6.4 - 28/01/2022 =
-* Allowed mixing includes/excludes while giving priority to product-defined settings over category/attribute
-* Verified compatibily with WooCommerce 6.2
+* Allowed mixing includes/excludes while giving priority to product-defined settings over category/attribute.
+* Verified compatibility with WooCommerce 6.2.
 
 = 1.6.3 - 28/01/2022 =
-* Verified compatibily with WordPress 5.9 & WooCommerce 6.1
+* Verified compatibility with WordPress 5.9 & WooCommerce 6.1.
 
 = 1.6.2 - 10/11/2021 =
-* Fixed a bug in WPML compatibility when switching between languages settings were lost
-* Verified compatibility with WooCommerce 5.9
+* Fixed a bug in WPML compatibility when switching between languages settings were lost.
+* Verified compatibility with WooCommerce 5.9.
 
 = 1.6.1 - 29/10/2021 =
-* Fixed a bug in showing category IDs instead of names for some users after 1.4.5
+* Fixed a bug in showing category IDs instead of names for some users after 1.4.5.
 
 = 1.6 - 26/10/2021 =
-* Fixed a bug in 1.4.5 preventing Pro users from using Pro features
-* Verified compatibility with WooCommerce 5.8
+* Fixed a bug in 1.4.5 preventing Pro users from using Pro features.
+* Verified compatibility with WooCommerce 5.8.
 
 = 1.4.5 - 19/10/2021 =
-* Fixed a bug showing category IDs instead of category names
-* Allowed choosing payment method from product edit page directly
+* Fixed a bug showing category IDs instead of category names.
+* Allowed choosing payment method from product edit page directly.
 
 = 1.4.4 - 16/10/2021 =
-* Fixed multiple issues (error 500) for stores with thousands of products
-* Verified compatibility with WooCommerce 5.7
+* Fixed multiple issues (error 500) for stores with thousands of products.
+* Verified compatibility with WooCommerce 5.7.
 
 = 1.4.3 - 30/08/2021 =
-* Checked & verified compatibility with WooCommerce 5.6
+* Checked & verified compatibility with WooCommerce 5.6.
 
 = 1.4.2 - 16/08/2021 =
-* Fixed a bug not showing specific custom gateways
-* Added an integration to manually added orders emails to show/hide gateways as in store
+* Fixed a bug not showing specific custom gateways.
+* Added an integration to manually added orders emails to show/hide gateways as in store.
 
 = 1.4.1 - 25/07/2021 =
-* Tested compatibilty with WC 5.5 & WP 5.8
+* Tested compatibility with WC 5.5 & WP 5.8.
 
 = 1.4 - 16/05/2021 =
 * New feature: Fallback gateway to show a selected gateway if mixed products (with different gateways) are in cart.
-* Verified compatibility with WooCommerce 5.3
+* Verified compatibility with WooCommerce 5.3.
 
 = 1.3.4 - 20/04/2021 =
-* Tested compatibilty with WC 5.1 & WP 5.7
+* Tested compatibility with WC 5.1 & WP 5.7.
 
 = 1.3.3 - 28/02/2021 =
-* Tested compatibilty with WC 5.0
+* Tested compatibility with WC 5.0.
 
 = 1.3.2 - 27/01/2021 =
-* Tested compatibility with WP 5.6 & WC 4.9
+* Tested compatibility with WP 5.6 & WC 4.9.
 
 = 1.3.1 - 21/11/2020 =
-* Tested compatibility with WC 4.7
+* Tested compatibility with WC 4.7.
 
 = 1.3 - 15/08/2020 =
-* Tested compatibility with WP 5.5
-* Tested compatibility with WC 4.3
+* Tested compatibility with WP 5.5.
+* Tested compatibility with WC 4.3.
 
 = 1.2.1 - 20/11/2019 =
 * Dev - Code refactoring.
@@ -350,8 +357,8 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 
 = 1.1.1 - 24/05/2019 =
 * Dev - Admin Settings - "Your settings have been reset" notice added.
-* Tested up to: 5.2.
 * WC tested up to: 3.6.
+* Tested up to: 5.2.
 
 = 1.1.0 - 29/11/2018 =
 * Fix - Text domain fixed.
