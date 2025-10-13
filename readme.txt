@@ -1,9 +1,9 @@
 === Payment Methods by Product & Country for WooCommerce ===
-Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
+Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, payment gateway, conditional payments, payment by product, payment by country
 Requires at least: 4.4
 Tested up to: 6.8
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -192,6 +192,10 @@ Great plugin and great support!” – ⭐⭐⭐⭐⭐ [Asger Laursen](https://w
 Once activated, access the plugin's settings by navigating to the "WPFactory" and look for the relevant tab.
 
 == Changelog ==
+
+= 1.8.3 - 13/10/2025 =
+* Dev - WPFactory Recommendations - Library updated (to v1.0.6).
+* WC tested up to: 10.2.
 
 = 1.8.2 - 27/06/2025 =
 * Fix - Resolved warning "Function _load_textdomain_just_in_time was called incorrectly" on admin pages.
