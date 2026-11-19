@@ -5,7 +5,7 @@
  * @version 2.0.0
  * @since   1.1.0
  *
- * @author  WPFactory
+ * @author WPFactory
  *
  * @package WPFactory\WC_Payment_Gateways_Per_Product\Settings
  */
@@ -40,7 +40,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP_Settings_Countries' ) ) :
 		 * @version 2.0.0
 		 * @since   1.7.9
 		 *
-		 * @todo    Get restriction setting based on saved numbers.
+		 * @todo Get restriction setting based on saved numbers.
 		 */
 		public function get_restriction_settings() {
 

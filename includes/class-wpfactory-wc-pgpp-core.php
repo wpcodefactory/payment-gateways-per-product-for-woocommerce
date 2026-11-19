@@ -5,7 +5,7 @@
  * @version 2.0.0
  * @since   1.0.0
  *
- * @author  WPFactory
+ * @author WPFactory
  *
  * @package WPFactory\WC_Payment_Gateways_Per_Product
  */
@@ -82,11 +82,11 @@ if ( ! class_exists( 'WPFactory_WC_PGPP_Core' ) ) :
 		 * @version 2.0.0
 		 * @since   1.0.0
 		 *
-		 * @param   array  $terms      Terms.
-		 * @param   string $taxonomy   Taxonomy.
-		 * @param   bool   $is_include Is include.
+		 * @param array  $terms      Terms.
+		 * @param string $taxonomy   Taxonomy.
+		 * @param bool   $is_include Is include.
 		 *
-		 * @return  bool
+		 * @return bool
 		 */
 		public function do_disable_gateway_by_terms( $terms, $taxonomy, $is_include ) {
 			global $wp;
@@ -138,7 +138,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP_Core' ) ) :
 		 * @version 2.0.0
 		 * @since   1.0.0
 		 *
-		 * @param   array $available_gateways Available gateways.
+		 * @param array $available_gateways Available gateways.
 		 */
 		public function filter_available_payment_gateways( $available_gateways ) {
 

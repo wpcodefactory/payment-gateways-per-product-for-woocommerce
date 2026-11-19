@@ -5,7 +5,7 @@
  * @version 2.0.0
  * @since   1.1.0
  *
- * @author  WPFactory
+ * @author WPFactory
  *
  * @package WPFactory\WC_Payment_Gateways_Per_Product\Settings
  */
@@ -40,7 +40,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP_Settings_Products' ) ) :
 		 * @version 2.0.0
 		 * @since   1.1.0
 		 *
-		 * @todo    "Add variations": add option to use main product and variations *simultaneously*?
+		 * @todo "Add variations": add option to use main product and variations *simultaneously*?
 		 */
 		public function get_settings() {
 			return array_merge(

@@ -5,7 +5,7 @@
  * @version 2.0.0
  * @since   1.0.0
  *
- * @author  WPFactory
+ * @author WPFactory
  *
  * @package WPFactory\WC_Payment_Gateways_Per_Product
  */
@@ -28,7 +28,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @version 2.0.0
 		 * @since   1.0.0
 		 *
-		 * @var     string
+		 * @var string
 		 */
 		public $version = WPFACTORY_WC_PGPP_VERSION;
 
@@ -38,7 +38,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @version 2.0.0
 		 * @since   1.0.0
 		 *
-		 * @var     WPFactory_WC_PGPP The single instance of the class
+		 * @var WPFactory_WC_PGPP
 		 */
 		protected static $instance = null;
 
@@ -48,7 +48,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @version 1.7.13
 		 * @since   1.7.13
 		 *
-		 * @var     WPFactory_WC_PGPP_Core
+		 * @var WPFactory_WC_PGPP_Core
 		 */
 		public $core = null;
 
@@ -62,7 +62,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 *
 		 * @static
 		 *
-		 * @return  WPFactory_WC_PGPP - Main instance
+		 * @return WPFactory_WC_PGPP
 		 */
 		public static function instance() {
 			if ( is_null( self::$instance ) ) {
@@ -77,10 +77,9 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @version 2.0.0
 		 * @since   1.0.0
 		 *
-		 * @access  public
+		 * @access public
 		 */
 		public function __construct() {
-
 			// Check for active WooCommerce plugin.
 			if ( ! function_exists( 'WC' ) ) {
 				return;
@@ -114,7 +113,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @version 2.0.0
 		 * @since   1.7.8
 		 *
-		 * @see     https://developer.woocommerce.com/docs/features/high-performance-order-storage/recipe-book/
+		 * @see https://developer.woocommerce.com/docs/features/high-performance-order-storage/recipe-book/
 		 */
 		public function wc_declare_compatibility() {
 			if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
@@ -151,7 +150,6 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @since   1.1.0
 		 */
 		public function admin() {
-
 			// Action links.
 			add_filter(
 				'plugin_action_links_' . plugin_basename( WPFACTORY_WC_PGPP_FILE ),
@@ -191,9 +189,9 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @version 2.0.0
 		 * @since   1.0.0
 		 *
-		 * @param   mixed $links Plugin action links.
+		 * @param mixed $links Plugin action links.
 		 *
-		 * @return  array
+		 * @return array
 		 */
 		public function action_links( $links ) {
 			$custom_links = array();
@@ -222,7 +220,6 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @since   1.8.0
 		 */
 		public function add_cross_selling_library() {
-
 			if ( ! class_exists( '\WPFactory\WPFactory_Cross_Selling\WPFactory_Cross_Selling' ) ) {
 				return;
 			}
@@ -239,7 +236,6 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @since   1.8.0
 		 */
 		public function move_wc_settings_tab_to_wpfactory_menu() {
-
 			if ( ! class_exists( '\WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 				return;
 			}
@@ -269,7 +265,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @version 2.0.0
 		 * @since   1.0.0
 		 *
-		 * @param   array $settings WooCommerce settings tabs.
+		 * @param array $settings WooCommerce settings tabs.
 		 */
 		public function add_woocommerce_settings_tab( $settings ) {
 			$settings[] = require_once plugin_dir_path( WPFACTORY_WC_PGPP_FILE ) . 'includes/settings/class-wpfactory-wc-pgpp-settings.php';
@@ -282,7 +278,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @version 1.1.0
 		 * @since   1.1.0
 		 *
-		 * @todo    (v2.0.0) Clean up `alg_wc_pgpp_pay_titles` option?
+		 * @todo (v2.0.0) Clean up `alg_wc_pgpp_pay_titles` option?
 		 */
 		public function version_updated() {
 			update_option( 'alg_wc_pgpp_version', $this->version );
@@ -294,7 +290,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @version 2.0.0
 		 * @since   1.0.0
 		 *
-		 * @return  string
+		 * @return string
 		 */
 		public function plugin_url() {
 			return untrailingslashit( plugin_dir_url( WPFACTORY_WC_PGPP_FILE ) );
@@ -306,7 +302,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP' ) ) :
 		 * @version 2.0.0
 		 * @since   1.0.0
 		 *
-		 * @return  string
+		 * @return string
 		 */
 		public function plugin_path() {
 			return untrailingslashit( plugin_dir_path( WPFACTORY_WC_PGPP_FILE ) );

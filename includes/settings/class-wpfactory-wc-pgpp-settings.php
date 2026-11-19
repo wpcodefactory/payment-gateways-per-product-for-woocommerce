@@ -5,7 +5,7 @@
  * @version 2.0.0
  * @since   1.0.0
  *
- * @author  WPFactory
+ * @author WPFactory
  *
  * @package WPFactory\WC_Payment_Gateways_Per_Product\Settings
  */

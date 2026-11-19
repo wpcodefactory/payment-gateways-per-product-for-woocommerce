@@ -2,8 +2,9 @@
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, payment gateway, conditional payments, payment by product, payment by country
 Requires at least: 4.4
-Tested up to: 7.0
-Stable tag: 2.0.0
+Tested up to: 7.1
+Requires PHP: 7.4
+Stable tag: 2.0.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -192,6 +193,14 @@ Great plugin and great support!” – ⭐⭐⭐⭐⭐ [Asger Laursen](https://w
 Once activated, access the plugin's settings by navigating to the "WPFactory" and look for the relevant tab.
 
 == Changelog ==
+
+= 2.0.1 - 19/11/2026 =
+* Dev - WPFactory Admin Menu - Library updated (to v1.1.4).
+* Dev - WPFactory Cross-Selling - Library updated (to v1.1.7).
+* Dev - WPFactory Key Manager - Library updated (to v1.1.1).
+* Tested up to: 7.1.
+* WC tested up to: 11.3.
+* Requires PHP: 7.4.
 
 = 2.0.0 - 29/06/2026 =
 * Dev - Input sanitized.

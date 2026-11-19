@@ -5,7 +5,7 @@
  * @version 2.0.0
  * @since   1.0.0
  *
- * @author  WPFactory
+ * @author WPFactory
  *
  * @package WPFactory\WC_Payment_Gateways_Per_Product\Settings
  */
@@ -40,7 +40,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP_Settings_General' ) ) :
 		 * @version 2.0.0
 		 * @since   1.0.0
 		 *
-		 * @todo    Better description for the "Add filter" option.
+		 * @todo Better description for the "Add filter" option.
 		 */
 		public function get_settings() {
 			return array(

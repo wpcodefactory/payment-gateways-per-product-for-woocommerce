@@ -3,13 +3,14 @@
  * Plugin Name: Payment Methods by Product & Country for WooCommerce
  * Plugin URI: https://wpfactory.com/item/payment-gateways-per-product-for-woocommerce/
  * Description: Show WooCommerce gateway only if there is selected product, product category or product tag in cart.
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author: WPFactory
  * Author URI: https://wpfactory.com
+ * Requires PHP: 7.4
  * Requires at least: 4.4
  * Text Domain: payment-gateways-per-product-categories-for-woocommerce
  * Domain Path: /langs
- * WC tested up to: 10.9
+ * WC tested up to: 11.3
  * Requires Plugins: woocommerce
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -37,6 +38,7 @@ if ( 'payment-gateways-per-product-for-woocommerce.php' === basename( __FILE__ )
 			);
 		}
 	}
+
 	if ( wpfactory_wc_pgpp_is_pro_activated() ) {
 		defined( 'WPFACTORY_WC_PGPP_FILE_FREE' ) || define( 'WPFACTORY_WC_PGPP_FILE_FREE', __FILE__ );
 		return;
@@ -49,7 +51,7 @@ if ( 'payment-gateways-per-product-for-woocommerce.php' === basename( __FILE__ )
  * @version 2.0.0
  * @since   2.0.0
  */
-defined( 'WPFACTORY_WC_PGPP_VERSION' ) || define( 'WPFACTORY_WC_PGPP_VERSION', '2.0.0' );
+defined( 'WPFACTORY_WC_PGPP_VERSION' ) || define( 'WPFACTORY_WC_PGPP_VERSION', '2.0.1' );
 
 /**
  * WPFACTORY_WC_PGPP_FILE.
@@ -74,7 +76,7 @@ if ( ! function_exists( 'wpfactory_wc_pgpp' ) ) {
 	 * @version 2.0.0
 	 * @since   1.0.0
 	 *
-	 * @return  WPFactory_WC_PGPP
+	 * @return WPFactory_WC_PGPP
 	 */
 	function wpfactory_wc_pgpp() {
 		return WPFactory_WC_PGPP::instance();

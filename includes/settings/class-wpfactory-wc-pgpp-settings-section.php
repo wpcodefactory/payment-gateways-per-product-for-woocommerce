@@ -5,7 +5,7 @@
  * @version 2.0.0
  * @since   1.0.0
  *
- * @author  WPFactory
+ * @author WPFactory
  *
  * @package WPFactory\WC_Payment_Gateways_Per_Product\Settings
  */
@@ -28,7 +28,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP_Settings_Section' ) ) :
 		 * @version 1.8.0
 		 * @since   1.8.0
 		 *
-		 * @var     string
+		 * @var string
 		 */
 		public $id;
 
@@ -38,7 +38,7 @@ if ( ! class_exists( 'WPFactory_WC_PGPP_Settings_Section' ) ) :
 		 * @version 1.8.0
 		 * @since   1.8.0
 		 *
-		 * @var     string
+		 * @var string
 		 */
 		public $desc;
 
@@ -67,9 +67,9 @@ if ( ! class_exists( 'WPFactory_WC_PGPP_Settings_Section' ) ) :
 		 * @version 1.0.0
 		 * @since   1.0.0
 		 *
-		 * @param   array $sections Sections.
+		 * @param array $sections Sections.
 		 *
-		 * @return  array
+		 * @return array
 		 */
 		public function settings_section( $sections ) {
 			$sections[ $this->id ] = $this->desc;
@@ -82,9 +82,9 @@ if ( ! class_exists( 'WPFactory_WC_PGPP_Settings_Section' ) ) :
 		 * @version 2.0.0
 		 * @since   1.0.0
 		 *
-		 * @param   array|string $args Arguments.
+		 * @param array|string $args Arguments.
 		 *
-		 * @return  array
+		 * @return array
 		 */
 		public function get_terms( $args ) {
 			global $wp_version, $sitepress;
@@ -134,16 +134,16 @@ if ( ! class_exists( 'WPFactory_WC_PGPP_Settings_Section' ) ) :
 		 *
 		 * @version 2.0.0
 		 *
-		 * @param   int    $term_id   Term ID.
-		 * @param   string $term_type Term type.
+		 * @param int    $term_id   Term ID.
+		 * @param string $term_type Term type.
 		 *
-		 * @return  string
+		 * @return string
 		 */
 		public function get_language_by_term_id( $term_id, $term_type ) {
 			global $wpdb;
 
-			$term_type  = 'tax_' . $term_type;
-			$table      = $wpdb->prefix . 'icl_translations';
+			$term_type = 'tax_' . $term_type;
+			$table     = $wpdb->prefix . 'icl_translations';
 
 			// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter
 			$language_code = $wpdb->get_var(
@@ -167,12 +167,12 @@ if ( ! class_exists( 'WPFactory_WC_PGPP_Settings_Section' ) ) :
 		 * @version 2.0.0
 		 * @since   1.1.0
 		 *
-		 * @param   array $args Arguments.
+		 * @param array $args Arguments.
 		 *
-		 * @todo    Add "Chosen select / Standard multiselect" option.
-		 * @todo    Add "Select all" button.
-		 * @todo    Add "Set as IDs" option (i.e., enter categories / tags / products by ID (i.e., as comma separated text)).
-		 * @todo    Add (i.e., duplicate) settings to "WooCommerce > Settings > Payments > Direct bank transfer" etc.?
+		 * @todo Add "Chosen select / Standard multiselect" option.
+		 * @todo Add "Select all" button.
+		 * @todo Add "Set as IDs" option (i.e., enter categories / tags / products by ID (i.e., as comma separated text)).
+		 * @todo Add (i.e., duplicate) settings to "WooCommerce > Settings > Payments > Direct bank transfer" etc.?
 		 */
 		public function get_gateways_settings( $args ) {
 			$gateways = wpfactory_wc_pgpp()->core->get_all_gateways();
